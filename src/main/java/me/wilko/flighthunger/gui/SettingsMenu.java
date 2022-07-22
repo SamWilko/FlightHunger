@@ -98,7 +98,7 @@ public class SettingsMenu extends Menu {
 								"&7Change how much hunger",
 								"&7is lost every interval",
 								"",
-								"&6Current&7: &e" + (HUNGER_LOSS_AMOUNT / 2.0) + (HUNGER_LOSS_AMOUNT == 1 ? " bar" : " bars"),
+								"&6Current&7: &e" + (HUNGER_LOSS_AMOUNT / 2.0) + (HUNGER_LOSS_AMOUNT == 2 ? " bar" : " bars"),
 								"",
 								"&aLeft click to increase",
 								"&cRight click to decrease")
