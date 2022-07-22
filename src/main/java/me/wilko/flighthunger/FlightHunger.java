@@ -7,12 +7,11 @@ public final class FlightHunger extends SimplePlugin {
 
 	@Override
 	protected void onPluginStart() {
-		new Settings().load();
 	}
 
 	@Override
 	protected void onReloadablesStart() {
-
+		Settings.load();
 	}
 
 	public static FlightHunger getInstance() {

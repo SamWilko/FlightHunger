@@ -34,6 +34,8 @@ public class SettingsMenu extends Menu {
 				if (click.isLeftClick()) {
 					HUNGER_LOSS_INTERVAL++;
 
+					Settings.save();
+
 					// Go through every players' timer and reset them
 					for (FlightChecker checker : PlayerTimers.getAllCheckers())
 						checker.start();
@@ -43,14 +45,14 @@ public class SettingsMenu extends Menu {
 				} else if (click.isRightClick() && HUNGER_LOSS_INTERVAL > 1) {
 					HUNGER_LOSS_INTERVAL--;
 
+					Settings.save();
+
 					// Go through every players' timer and reset them
 					for (FlightChecker checker : PlayerTimers.getAllCheckers())
 						checker.start();
 
 					restartMenu();
 				}
-
-				new Settings().save();
 			}
 
 			@Override
@@ -76,14 +78,16 @@ public class SettingsMenu extends Menu {
 				if (click.isLeftClick() && HUNGER_LOSS_AMOUNT < 20) {
 					HUNGER_LOSS_AMOUNT++;
 
+					Settings.save();
+
 					restartMenu();
 				} else if (click.isRightClick() && HUNGER_LOSS_AMOUNT > 1) {
 					HUNGER_LOSS_AMOUNT--;
 
+					Settings.save();
+
 					restartMenu();
 				}
-
-				new Settings().save();
 			}
 
 			@Override
@@ -94,7 +98,7 @@ public class SettingsMenu extends Menu {
 								"&7Change how much hunger",
 								"&7is lost every interval",
 								"",
-								"&6Current&7: &e" + (HUNGER_LOSS_AMOUNT / 2.0) + (HUNGER_LOSS_AMOUNT > 2 ? " bars" : " bar"),
+								"&6Current&7: &e" + (HUNGER_LOSS_AMOUNT / 2.0) + (HUNGER_LOSS_AMOUNT == 1 ? " bar" : " bars"),
 								"",
 								"&aLeft click to increase",
 								"&cRight click to decrease")
